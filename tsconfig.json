@@ -1,0 +1,32 @@
+{
+	"compilerOptions": 
+	{
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"noImplicitAny": true,
+		"noEmitOnError": true,
+		"removeComments": false,
+		"preserveConstEnums": true,
+		"outDir": "./bin",
+		"sourceMap": false,
+		"target": "es5"
+	},
+	"files": [
+		"typings/node.d.ts",
+		"typings/lib.es6.d.ts",
+		"typings/bluebird.d.ts",
+		"typings/mocha.d.ts",
+		"typings/chai.d.ts",
+		"Cli.ts",
+		"Helper.ts",
+		"Processor.ts",
+		"Formatter.ts",
+		"FormatterLoader.ts",
+		"FormatCodeOptions.ts",
+		"TslintProvider.ts",
+		"Formatters/ForceImportSpacing.ts",
+		"Formatters/GroupExportsAtEnd.ts",
+		"Formatters/OpeningBraceOnNewLine.ts",
+		"test/TsCodeFormatterTests.ts"
+	]	
+}

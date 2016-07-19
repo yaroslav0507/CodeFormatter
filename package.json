@@ -1,0 +1,27 @@
+{
+  "name": "crm-ts-code-formatter",
+  "version": "1.0.0",
+  "description": "Custom code formatters for Dynamics CRM team",
+  "author": "Microsoft Corporation",
+  "license": "ISC",
+  "keywords": [
+    "TypeScript"
+  ],
+  "preferGlobal": true,
+  "bin": {
+    "ts-cfmt": "./bin/Cli.js"
+  },
+  "scripts": {
+	  "test": "mocha ./bin/test --reporter list -s 400"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
+  },
+  "dependencies": {
+    "bluebird": "^2.9.6",
+    "commandpost": "^1.0.0",
+    "tslint": "^3.8.1",
+    "typescript": "^1.8.10"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "extends": "tslint:latest",
+  "rules": {
+    "indent": [true, "tabs"],
+    "no-constructor-vars": true,
+    "no-console": ["log"],
+    "crm-semicolon-after-export": true,
+    "crm-no-semicolon-after-function-definition": true,
+    "crm-indent-inside-export": [true, "multi-line-tabs", "single-line-spaces"],
+    "crm-group-exports-at-end": true,
+    "crm-validate-jsdoc-with-signature": true,
+    "semicolon": [true, "always"],
+    "typedef": [true, "call-signature", "parameter"]
+  },
+  "rulesDirectory": [
+    "rules"
+  ]
+}
