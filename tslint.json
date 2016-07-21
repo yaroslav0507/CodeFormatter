@@ -2,6 +2,7 @@
   "extends": "tslint:latest",
   "rules": {
     "indent": [true, "tabs"],
+    "jsdoc-format": true,
     "no-constructor-vars": true,
     "no-console": ["log"],
     "crm-semicolon-after-export": true,

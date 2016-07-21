@@ -8,10 +8,9 @@ import { FormatCodeOptions } from "../FormatCodeOptions";
 chai.config.includeStack = false;
 const expect = chai.expect;
 
-const caseGroupExportsAtEnd = "GroupExportsAtEnd";
-
-describe(caseGroupExportsAtEnd, function()
+describe("group exports at end formatter", () =>
 {
+	const caseGroupExportsAtEnd = "GroupExportsAtEnd";
 	let tsLintRules: any;
 
 	beforeEach(() => {
@@ -21,7 +20,7 @@ describe(caseGroupExportsAtEnd, function()
 		};
 	});
 
-	it("should reorder export statements when they are laid out the wrong way initially", function ()
+	it("should reorder export statements when they are laid out the wrong way initially", () =>
 	{
 		checkFormatter(
 			caseGroupExportsAtEnd, 
@@ -31,77 +30,99 @@ describe(caseGroupExportsAtEnd, function()
 		);
 	});
 
-	it("should not change anything when the exports order is correct initially", function()
+	it("should not change anything when the exports order is correct initially", () =>
 	{
 		checkFormatter(
 			caseGroupExportsAtEnd, 
 			"NoReordering.ts", 
 			"NoReordering_ref.ts",
-			tsLintRules);
+			tsLintRules
+		);
 	});
 });
 
-const caseOpeningBraceOnNewLine = "OpeningBraceOnNewLine";
 
-describe(caseOpeningBraceOnNewLine, function()
+describe("opening brace on the new line formatter", () =>
 {
-	it("should place opening curly braces, if statements, else statements on a new line", function ()
+	const caseOpeningBraceOnNewLine = "OpeningBraceOnNewLine";
+
+	it("should place opening curly braces, if statements, else statements on a new line", () =>
 	{
 		checkFormatter(
 			caseOpeningBraceOnNewLine, 
 			"NeedsFormatting.ts", 
 			"NeedsFormatting_ref.ts", 
-			{ "crm-braces-own-line": true });
+			{ "crm-braces-own-line": true }
+		);
 	});
 
-	it("should not change anything when the file is formatted properly initially", function()
+	it("should not change anything when the file is formatted properly initially", () =>
 	{
 		checkFormatter(
 			caseOpeningBraceOnNewLine, 
 			"NoFormatting.ts", 
 			"NoFormatting_ref.ts", 
-			{ "crm-braces-own-line": true });
+			{ "crm-braces-own-line": true }
+		);
 	});
 });
 
-const caseForceImportSpacing = "ForceImportSpacing";
 
-describe(caseForceImportSpacing, function()
+describe("force import spacing formatter", function()
 {
-	it("should place a single space on the boundaries of an import curly braces block", function ()
+	const caseForceImportSpacing = "ForceImportSpacing";
+
+	it("should place a single space on the boundaries of an import curly braces block", () =>
 	{
 		checkFormatter(
 			caseForceImportSpacing, 
 			"NeedsSingleSpace.ts", 
 			"NeedsSingleSpace_ref.ts", 
-			{ "crm-force-import-spacing": [true, "force-single-space"] });
+			{ "crm-force-import-spacing": [true, "force-single-space"] }
+		);
 	});
 
-	it("should not change anything when the file is formatted with single space initially", function()
+	it("should not change anything when the file is formatted with single space initially", () =>
 	{
 		checkFormatter(
 			caseForceImportSpacing, 
 			"NoNeedForSingleSpace.ts", 
 			"NoNeedForSingleSpace_ref.ts", 
-			{ "crm-force-import-spacing": [true, "force-single-space"] });
+			{ "crm-force-import-spacing": [true, "force-single-space"] }
+		);
 	});
 
-	it("should remove any whitespace on the boundaries of an import curly braces block", function ()
+	it("should remove any whitespace on the boundaries of an import curly braces block", () =>
 	{
 		checkFormatter(
 			caseForceImportSpacing, 
 			"NeedsNoWhitespace.ts", 
 			"NeedsNoWhitespace_ref.ts", 
-			{ "crm-force-import-spacing": [true, "force-no-space"] });
+			{ "crm-force-import-spacing": [true, "force-no-space"] }
+		);
 	});
 
-	it("should not change anything when the file is formatted with no space initially", function()
+	it("should not change anything when the file is formatted with no space initially", () =>
 	{
 		checkFormatter(
 			caseForceImportSpacing, 
 			"NoNeedForNoWhitespace.ts", 
 			"NoNeedForNoWhitespace_ref.ts", 
-			{ "crm-force-import-spacing": [true, "force-no-space"] });
+			{ "crm-force-import-spacing": [true, "force-no-space"] }
+		);
+	});
+});
+
+describe("JSDoc comments formatter", () => {
+	const caseJsDocIndents = "jsDocIndents";
+
+	it("should fix indentation of jsDoc comments if it's broken", () => {
+		checkFormatter(
+			caseJsDocIndents,
+			"NeedsFormatting.ts",
+			"NeedsFormatting_ref.ts",
+			{ "jsdoc-format": true }
+		)
 	});
 });
 
@@ -119,7 +140,6 @@ function checkFormatter(testCase: string,
 function readFileContents(testCase: string, fileName: string): string
 {
 	const fullFileName = getCaseFileName(testCase, fileName);
-	
 	return fs.readFileSync(fullFileName).toString();
 }
 

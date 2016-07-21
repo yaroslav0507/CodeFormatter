@@ -11,7 +11,7 @@ function checkForIntersectingEdits(edits: TextChange[])
 		const currentSpan = edits[i].span;
 		const previousSpan = edits[i - 1].span;
 		if (currentSpan.start < previousSpan.start + previousSpan.length)
-			throw new Error("There must be no intersections between edit spans");	
+			throw new Error("There must be no intersections between edit spans");
 	}
 }
 
@@ -112,7 +112,7 @@ function getLineIndentation(node: ts.Node): string
 	}
 	
 	return result;
-} 
+}
 
 function formatString(
 	fileName: string, text: string,

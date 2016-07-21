@@ -24,9 +24,11 @@
 		"FormatterLoader.ts",
 		"FormatCodeOptions.ts",
 		"TslintProvider.ts",
-		"Formatters/ForceImportSpacing.ts",
-		"Formatters/GroupExportsAtEnd.ts",
-		"Formatters/OpeningBraceOnNewLine.ts",
+		"formatters/ForceImportSpacing.ts",
+		"formatters/GroupExportsAtEnd.ts",
+		"formatters/OpeningBraceOnNewLine.ts",
+		"formatters/JsDocIndents.ts",
+		"formatters/SemicolonAfterFunctionDefinition.ts",
 		"test/TsCodeFormatterTests.ts"
 	]	
 }
