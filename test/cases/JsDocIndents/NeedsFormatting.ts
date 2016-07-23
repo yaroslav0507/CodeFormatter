@@ -17,7 +17,7 @@ class SomeAbstractClass {
 	  *
 			 * sadfadsfas
 	 *
-		* asdfasdfasdf
+	 * asdfasdfasdf
 *
 					* some stub method of Class
 		* @param newProp

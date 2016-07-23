@@ -29,6 +29,8 @@
 		"formatters/OpeningBraceOnNewLine.ts",
 		"formatters/JsDocIndents.ts",
 		"formatters/SemicolonAfterFunctionDefinition.ts",
+		"formatters/SemicolonAfterExport.ts",
+		"formatters/TrimTrailingWhiteSpaces.ts",
 		"test/TsCodeFormatterTests.ts"
 	]	
 }

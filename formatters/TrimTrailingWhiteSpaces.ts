@@ -13,7 +13,7 @@ class Formatter implements f.Formatter {
     private _sourceFile: ts.SourceFile;
     private _opts: Options;
     private _formatOptions: FormatCodeOptions;
-    private _lintRuleName: string = "crm-no-semicolon-after-function-definition";
+    private _lintRuleName: string = "no-trailing-whitespace";
 
     public isApplicable(formatOptions: FormatCodeOptions): boolean
     {
@@ -31,14 +31,17 @@ class Formatter implements f.Formatter {
         ruleFailures.forEach((failure, priority) =>
         {
             const start = failure.getStartPosition().getPosition();
-
-            const removedSemicolon = {
-                span: { start, length: 1 },
+            console.log("Start:", start);
+            const end = failure.getEndPosition().getPosition();
+            console.log("End: ", end, "\n\n");
+            
+            const updatedText = {
+                span: { start, length: end - start },
                 newText: "",
                 priority,
             };
-
-            this.edits.push(removedSemicolon);
+            
+            this.edits.push(updatedText);
         });
 
         return this.edits;

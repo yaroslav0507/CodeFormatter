@@ -13,7 +13,7 @@ class Formatter implements f.Formatter {
     private _sourceFile: ts.SourceFile;
     private _opts: Options;
     private _formatOptions: FormatCodeOptions;
-    private _lintRuleName: string = "crm-no-semicolon-after-function-definition";
+    private _lintRuleName: string = "crm-semicolon-after-export";
 
     public isApplicable(formatOptions: FormatCodeOptions): boolean
     {
@@ -32,13 +32,13 @@ class Formatter implements f.Formatter {
         {
             const start = failure.getStartPosition().getPosition();
 
-            const removedSemicolon = {
-                span: { start, length: 1 },
-                newText: "",
+            const updatedText = {
+                span: { start, length: 0 },
+                newText: ";",
                 priority,
             };
 
-            this.edits.push(removedSemicolon);
+            this.edits.push(updatedText);
         });
 
         return this.edits;

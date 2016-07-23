@@ -11,9 +11,10 @@
     "crm-group-exports-at-end": true,
     "crm-validate-jsdoc-with-signature": true,
     "semicolon": [true, "always"],
-    "typedef": [true, "call-signature", "parameter"]
+    "typedef": [true, "call-signature", "parameter"],
+    "no-trailing-whitespace": true
   },
   "rulesDirectory": [
-    "rules"
+    "./rules"
   ]
 }

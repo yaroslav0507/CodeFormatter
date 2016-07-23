@@ -126,6 +126,46 @@ describe("JSDoc comments formatter", () => {
 	});
 });
 
+describe("semicolon after function definition formatter", () => {
+	const caseJsDocIndents = "SemicolonAfterFunction";
+
+	it("should remove semicolons after function definitions", () => {
+		checkFormatter(
+			caseJsDocIndents,
+			"NeedsFormatting.ts",
+			"NeedsFormatting_ref.ts",
+			{ "crm-no-semicolon-after-function-definition": true }
+		)
+	});
+});
+
+describe("semicolon after export formatter", () => {
+	const caseSemicolonAfterExport = "SemicolonAfterExport";
+
+	it("should add semicolons after export declarations", () => {
+		checkFormatter(
+			caseSemicolonAfterExport,
+			"NeedsFormatting.ts",
+			"NeedsFormatting_ref.ts",
+			{ "crm-semicolon-after-export": true }
+		)
+	});
+});
+
+
+describe("trailing white-spaces formatter", () => {
+	const caseTrimWhiteSpaces = "TrimWhiteSpaces";
+
+	it("should trim any redundant white-space characters at the end of lines", () => {
+		checkFormatter(
+			caseTrimWhiteSpaces,
+			"NeedsFormatting.ts",
+			"NeedsFormatting_ref.ts",
+			{ "no-trailing-whitespace": true }
+		)
+	});
+});
+
 function checkFormatter(testCase: string,
 						fileToFormat: string,
 						fileToRefer: string,

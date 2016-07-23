@@ -1,0 +1,5 @@
+class Stub {
+
+}
+
+export { Stub }
